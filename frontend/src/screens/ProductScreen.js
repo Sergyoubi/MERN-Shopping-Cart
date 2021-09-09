@@ -9,17 +9,17 @@ const ProductScreen = ({match, history}) => {
 
   const [qty,setQty] = useState(1);
   const dispatch = useDispatch();
-  const productDetails = useSelector(state => state.getProductDetails); //data from reducers => state
+  const productDetails = useSelector(state => state.getProductDetails); 
   const { product, loading, error } = productDetails;
 
-  const addToCartHandler = () => { //this fn dispatches an action 'addToCart' to the reducer
-    dispatch(addToCart(product._id, qty)) //add to cart action took 2 parameters: qty, product's id
+  const addToCartHandler = () => { 
+    dispatch(addToCart(product._id, qty)) 
     history.push("/cart")
   }
 
   useEffect(() => {
-    if (product && match.params.id !== product._id) { //if product is not equal to product._id(from state)  //we called it 'id' in our route(App.js)
-      dispatch(getProductDetails(match.params.id)) //dispatch an action
+    if (product && match.params.id !== product._id) {
+      dispatch(getProductDetails(match.params.id))
     }
   }, [dispatch, product, match])
 
@@ -50,7 +50,7 @@ const ProductScreen = ({match, history}) => {
               </p>
               <p>
                 Qty
-                <select value={qty} onChange={(e) => setQty(e.target.value)}> {/*match the value the same as in the DB*/}
+                <select value={qty} onChange={(e) => setQty(e.target.value)}>
                   {[...Array(product.countInStock).keys()].map((x) => (
                     <option key={x+1} value={x+1}>{x+1}</option> 
                   ))}
