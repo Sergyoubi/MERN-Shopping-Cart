@@ -10,7 +10,7 @@ const reducer = combineReducers({
   getProducts: getProductsReducer,
   getProductDetails: getProductDetailsReducer
 });
-const middleware = [thunk]; //help to make async requests in our actions
+const middleware = [thunk];
 const cartFromLocalStorage = localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : []
 const INITIAL_STATE = {
   cart: {
