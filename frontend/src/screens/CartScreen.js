@@ -10,10 +10,10 @@ import { addToCart, removeFromCart } from '../redux/actions/cartActions';
 const CartScreen = () => {
   const dispatch = useDispatch();
 
-  const cart = useSelector((state) => state.cart); //data from cartReducer/store
+  const cart = useSelector((state) => state.cart); 
   const { cartItems } = cart;
 
-  const qtyChangeHandler = (id, qty) => { //function that updates(rechange) the qty from CartItem
+  const qtyChangeHandler = (id, qty) => { 
     dispatch(addToCart(id, qty))
   };
   const removeItemHandler = (id) => {
