@@ -1,5 +1,4 @@
-//here we make all http request to the backend to get products detail and add/remove it to the cart 
-import * as actionTypes from '../constants/cartConstants';
+ import * as actionTypes from '../constants/cartConstants';
 import axios from 'axios';
 
 export const addToCart = (id, qty) => async (dispatch, getState) => { //getState is part of Redux thunk
